@@ -429,6 +429,8 @@ section {
   overflow: hidden;
   cursor: pointer;
   transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card::before {
@@ -488,6 +490,7 @@ section {
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 1.2rem;
+  flex-grow: 1;
 }
 
 .project-tags {
@@ -811,7 +814,6 @@ footer {
       <div class="project-desc">Deep-dive into Linux security: POSIX permissions, ACLs, sticky bit, and system hardening. Included a full system recovery from BIOS corruption through HP recovery and OS reinstall.</div>
       <div class="project-tags">
         <span class="project-tag">Linux</span>
-        <span class="project-tag">Fedora</span>
         <span class="project-tag">chmod / chown</span>
         <span class="project-tag">ACLs</span>
         <span class="project-tag">System Recovery</span>
@@ -864,6 +866,28 @@ footer {
         <div class="project-details-inner">
           Parses authentication logs to identify suspicious patterns including repeated failed logins and successful access following brute force attempts. Generates a clean scan report flagging threat actors by IP — replicating logic used in enterprise SIEM platforms like Splunk.<br><br>
           <a href="https://github.com/oyezenu/log-analyzer" target="_blank" rel="noopener">&#8594; View on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5: Password Strength Checker -->
+    <div class="project-card reveal" onclick="toggleProject(this)">
+      <div class="project-icon security">&#128737;</div>
+      <div class="project-label">Defensive Security / Python</div>
+      <div class="project-title">Password Strength Checker</div>
+      <div class="project-desc">A Python tool that evaluates password strength based on length, complexity, and common password detection — scoring passwords out of 7 and providing actionable feedback.</div>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">Regex</span>
+        <span class="project-tag">LUDS</span>
+        <span class="project-tag">Password Security</span>
+        <span class="project-tag">Defensive Security</span>
+      </div>
+      <div class="project-expand"><span class="project-expand-arrow">&#9656;</span> Details</div>
+      <div class="project-details">
+        <div class="project-details-inner">
+          Analyzes passwords using the LUDS framework (Lowercase, Uppercase, Digits, Special characters) combined with length thresholds and common password detection. Scores passwords out of 7 and returns specific improvement suggestions — complementing the Password Cracker project by evaluating defense rather than offense.<br><br>
+          <a href="https://github.com/oyezenu/password-strength-checker" target="_blank" rel="noopener">&#8594; View on GitHub</a>
         </div>
       </div>
     </div>
