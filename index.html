@@ -588,31 +588,26 @@ section {
 }
 
 .skill-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(30, 30, 46, 0.5);
+}
+
+.skill-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .skill-name {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-primary);
+  margin-bottom: 0.25rem;
 }
 
-.skill-bar-container {
-  width: 80px;
-  height: 4px;
-  background: var(--bg-primary);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.skill-bar {
-  height: 100%;
-  background: var(--accent);
-  border-radius: 2px;
-  width: 0;
-  transition: width 1s ease;
+.skill-context {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.3px;
 }
 
 /* ═══ CONTACT ═══ */
@@ -907,48 +902,48 @@ footer {
     <div class="skill-group reveal">
       <div class="skill-group-title">Languages</div>
       <div class="skill-item">
-        <span class="skill-name">Python</span>
-        <div class="skill-bar-container"><div class="skill-bar" data-width="80"></div></div>
+        <div class="skill-name">Python</div>
+        <div class="skill-context">cracker &middot; log analyzer &middot; port scanner</div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Bash / Shell</span>
-        <div class="skill-bar-container"><div class="skill-bar" data-width="65"></div></div>
+        <div class="skill-name">Bash / Shell</div>
+        <div class="skill-context">lab automation &middot; system administration</div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">HTML / CSS</span>
-        <div class="skill-bar-container"><div class="skill-bar" data-width="50"></div></div>
+        <div class="skill-name">HTML / CSS</div>
+        <div class="skill-context">this portfolio</div>
       </div>
     </div>
 
     <div class="skill-group reveal">
       <div class="skill-group-title">Security</div>
       <div class="skill-item">
-        <span class="skill-name">Cryptography</span>
-        <div class="skill-bar-container"><div class="skill-bar" data-width="70"></div></div>
+        <div class="skill-name">Cryptography</div>
+        <div class="skill-context">SHA-256 &middot; salting &middot; iterated hashing</div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Network Analysis</span>
-        <div class="skill-bar-container"><div class="skill-bar" data-width="65"></div></div>
+        <div class="skill-name">Network Analysis</div>
+        <div class="skill-context">port scanning &middot; service fingerprinting</div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Penetration Testing</span>
-        <div class="skill-bar-container"><div class="skill-bar" data-width="45"></div></div>
+        <div class="skill-name">Log Analysis</div>
+        <div class="skill-context">brute-force detection &middot; auth log parsing</div>
       </div>
     </div>
 
     <div class="skill-group reveal">
       <div class="skill-group-title">Systems & Tools</div>
       <div class="skill-item">
-        <span class="skill-name">Linux / Unix</span>
-        <div class="skill-bar-container"><div class="skill-bar" data-width="75"></div></div>
+        <div class="skill-name">Linux / Unix</div>
+        <div class="skill-context">POSIX permissions &middot; ACLs &middot; system recovery</div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Git / GitHub</span>
-        <div class="skill-bar-container"><div class="skill-bar" data-width="70"></div></div>
+        <div class="skill-name">Git / GitHub</div>
+        <div class="skill-context">branching &middot; pull requests &middot; code review</div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">VMs / Virtualization</span>
-        <div class="skill-bar-container"><div class="skill-bar" data-width="60"></div></div>
+        <div class="skill-name">VMs / Virtualization</div>
+        <div class="skill-context">lab environments &middot; isolated test setups</div>
       </div>
     </div>
   </div>
@@ -1061,7 +1056,7 @@ const phrases = [
   'password cracking & defense analysis',
   'Linux system hardening',
   'Python security tooling',
-  'network vulnerability assessment',
+  'log analysis & threat detection',
   'cryptographic implementations'
 ];
 let phraseIdx = 0, charIdx = 0, isDeleting = false;
@@ -1112,11 +1107,6 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-
-      // Animate skill bars
-      entry.target.querySelectorAll('.skill-bar').forEach(bar => {
-        bar.style.width = bar.dataset.width + '%';
-      });
     }
   });
 }, { threshold: 0.1 });
